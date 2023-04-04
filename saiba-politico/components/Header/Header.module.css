@@ -1,0 +1,42 @@
+.Div1_Principal {
+    padding: 15px 110px;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    background-color: #0041B2;
+    height: 4em;
+}
+
+.Image {
+    margin-right: 68px;
+}
+
+.Div1_Section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.Div1_Section input {
+    width: 92%;
+    height: 100%;
+    border-top: 4px solid #00FF15; border-bottom: 4px solid #00FF15; border-left: 4px solid #00FF15;
+    /* border-radius: 50px; */
+    border-radius: 50px 0 0 50px;
+    padding-left: 20px;
+    font-size: 1.5rem;
+}
+
+.Div1_Section_Icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 8%;
+    height: 100%;
+    background-color: #00FF15;
+    border-radius: 0 50px 50px 0;
+    color: #0041B2;
+    font-size: 50px;
+}
