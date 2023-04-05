@@ -1,16 +1,16 @@
 .Div1_Principal {
-    padding: 15px 110px;
+    padding: var(--addingGeneral);
     justify-content: space-between;
     align-items: center;
     display: flex;
-    background-color: #0041B2;
+    background-color: var(--DarkBlue);
     height: 4em;
-    border-bottom: 4px solid #00FF15;
+    border-bottom: 4px solid var(--Green);
 }
 
 .Image {
     margin-right: 68px;
-    width: 200px;
+    width: 12.5em;
     height: auto;
 }
 
@@ -25,8 +25,7 @@
 .Div1_Section input {
     width: 92%;
     height: 100%;
-    border-top: 4px solid #00FF15; border-bottom: 4px solid #00FF15; border-left: 4px solid #00FF15;
-    /* border-radius: 50px; */
+    border-top: 4px solid var(--Green); border-bottom: 4px solid var(--Green); border-left: 4px solid var(--Green);
     border-radius: 50px 0 0 50px;
     padding-left: 20px;
     font-size: 1.5rem;
@@ -38,8 +37,7 @@
     align-items: center;
     width: 8%;
     height: 100%;
-    background-color: #00FF15;
+    background-color: var(--Green);
     border-radius: 0 50px 50px 0;
-    color: #0041B2;
-    font-size: 50px;
+    color: var(--DarkBlue);
 }
