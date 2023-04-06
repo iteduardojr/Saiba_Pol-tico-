@@ -1,19 +1,19 @@
 import Head from 'next/head';
 import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
-
-// import '../styles/Variaveisreset.module.css'
+import Navbar from '../components/Navbar/Navbar';
 
 export default function Home() {
   return (
     <>
-    <style jsx global>{`
+      <style jsx global>{`
       @import url('https://fonts.googleapis.com/css2?family=Jura:wght@300;400;500;600;700&display=swap');
 
             :root {
               --White: #ffffff;
               --DarkBlue: #0041B2;
               --Green: #00FF15;
+              --Black: black;
 
               // SPACING
 
@@ -30,8 +30,9 @@ export default function Home() {
     `}</style>
 
       <Header />
+      <Navbar />
       <Footer />
-      
+
     </>
   )
 }

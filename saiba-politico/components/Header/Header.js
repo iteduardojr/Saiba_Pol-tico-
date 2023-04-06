@@ -4,7 +4,7 @@ import Logo from '../../public/Logo.svg'
 
 import Style from './Header.module.css'
 
-import { IoSearch } from "react-icons/io5";
+import { IoSearch, IoMenu } from "react-icons/io5";
 
 const Header = () => {
   return (
