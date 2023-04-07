@@ -26,10 +26,12 @@
     background: var(--DarkBlue);
     width: 2.5em;
     height: 100%;
-}   
+}
 
-.Icon1 {
-    transition: all 200ms;
+.Icon svg {
+    font-size: 2em;
+    color: var(--Green);
+    transition: all 600ms;
 }
 
 .Icon1:hover {

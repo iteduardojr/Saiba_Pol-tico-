@@ -3,15 +3,12 @@ import Az from '../A-z/Az'
 
 import Style from './Style.module.css'
 
-const Navbar = () => {
+const Navbar = (props) => {
   return (
     <>
-        <nav className={Style.nav}>
-            <Az Titulo="A-Z" />
-            <Az Titulo="Partido" />
-            <Az Titulo="Tipo" />
-            <Az Titulo="Lotação" />
-        </nav>
+      <nav className={Style.nav}>
+        <Az Titulo="Test"/>
+      </nav>
     </>
   )
 }

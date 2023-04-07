@@ -12,7 +12,7 @@ const Az = (props) => {
           <p>{props.Titulo}</p>
         </div>
         <div className={Style["Geral", "Icon"]}>
-          <IoChevronDownSharp size="2em" color="#ffffff" className={Style.Icon1}/>
+          <IoChevronDownSharp className={Style.Icon1}/>
         </div>
       </div>
     </>
