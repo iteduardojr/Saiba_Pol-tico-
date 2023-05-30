@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import React, { useState } from 'react'
-import { Button, Container, Navbar, Offcanvas } from 'react-bootstrap'
-import { IoApps } from "react-icons/io5";
+import { Button, Container, Form, InputGroup, Navbar, Offcanvas } from 'react-bootstrap'
+import { IoApps, IoSearch } from "react-icons/io5";
 
 const Header = () => {
 
@@ -14,9 +14,10 @@ const Header = () => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     return (
-        <Navbar bg="light" expand="lg">
+        <Navbar bg="primary" expand="lg" className='mb-4'>
             <Container fluid>
-                <Button variant="primary" onClick={handleShow}> <IoApps /> </Button>
+                <Button variant="outline-light" onClick={handleShow} className='mr-4'> <IoApps /> </Button>
+                <Navbar.Brand href="#">Saiba-Politica</Navbar.Brand>
 
                 <Offcanvas show={show} onHide={handleClose}>
                     <Offcanvas.Header closeButton>
@@ -29,7 +30,11 @@ const Header = () => {
                     </Offcanvas.Body>
                 </Offcanvas>
                 <Navbar.Toggle aria-controls="navbarScroll" />
-                <Navbar.Brand href="#">Saiba-Politica</Navbar.Brand>
+
+                <InputGroup>
+                    <Form.Control placeholder="Pesquise o deputado aqui" aria-label="Recipient's username" aria-describedby="basic-addon2" />
+                    <Button variant="outline-light" id="button-addon2"> <IoSearch /> </Button>
+                </InputGroup>
             </Container>
         </Navbar>
     )
