@@ -3,7 +3,10 @@ import Align from '../../components/Align'
 import Header from '../../components/Header'
 import apiDeputados from '../../services/apiDeputados'
 import { Card, Col, Pagination, Row } from 'react-bootstrap'
-import Paginate from '../../components/Paginate'
+import Link from 'next/link'
+import Bar from '../../components/NavBar/Bar'
+import Nav from '../../components/NavBar/Nav'
+import NavItem from '../../components/NavBar/NavItem'
 
 const index = ({ openDeputados }) => {
 
@@ -22,14 +25,21 @@ const index = ({ openDeputados }) => {
     return (
         <>
             <Header />
+            <Bar>
+                <Nav Name='A-Z'>
+                    <NavItem Href='//' Item='Test'/>
+                </Nav>
+            </Bar>
             <Align>
                 <Row md={5}>
                     {currentResults.map(item => (
                         <Col key={item.id}>
                             <Card bg='primary' text='light' className="mb-4" style={{ height: '21em' }}>
                                 <Card.Body className='text-center'>
-                                    <Card.Img variant="top" src={item.urlFoto}/>
-                                    <Card.Text>{item.nome}</Card.Text>
+                                    <Link href={'/deputados/' + item.id}>
+                                        <Card.Img variant="top" src={item.urlFoto} />
+                                    </Link>
+                                        <Card.Text>{item.nome}</Card.Text>
                                 </Card.Body>
                             </Card>
                         </Col>

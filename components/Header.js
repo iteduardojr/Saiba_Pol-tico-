@@ -14,7 +14,7 @@ const Header = () => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     return (
-        <Navbar bg="primary" expand="lg" className='mb-4'>
+        <Navbar bg="primary" expand="lg">
             <Container fluid>
                 <Button variant="outline-light" onClick={handleShow} className='mr-4'> <IoApps /> </Button>
                 <Navbar.Brand href="#">Saiba-Politica</Navbar.Brand>
