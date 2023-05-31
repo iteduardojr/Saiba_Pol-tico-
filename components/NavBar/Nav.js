@@ -5,7 +5,6 @@ const Nav = (props) => {
     return (
         <NavDropdown title={props.Name} id="navbarScrollingDropdown">
             {props.children}
-            <NavDropdown.Divider />
         </NavDropdown>
     )
 }

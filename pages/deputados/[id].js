@@ -1,11 +1,18 @@
 import React from 'react'
+import Align from '../../components/Align'
+import Header from '../../components/Header'
 import apiDeputados from '../../services/apiDeputados'
 
 const idDeputados = ({pullDeputado}) => {
 
     console.log(pullDeputado)
   return (
-    <div>idDeputados</div>
+    <>
+    <Header />
+    <Align>
+      
+    </Align>
+    </>
   )
 }
 

@@ -11,7 +11,7 @@ import NavItem from '../../components/NavBar/NavItem'
 const index = ({ openDeputados }) => {
 
     const [currentPage, setCurrentPage] = useState(1);
-    const resultsPerPage = 50;
+    const resultsPerPage = 45;
     const totalPages = Math.ceil(openDeputados.length / resultsPerPage);
 
     const paginate = page => setCurrentPage(Math.min(Math.max(page, 1), totalPages));
@@ -25,9 +25,18 @@ const index = ({ openDeputados }) => {
     return (
         <>
             <Header />
-            <Bar>
-                <Nav Name='A-Z'>
-                    <NavItem Href='//' Item='Test'/>
+            <Bar>                                                                                                   {/* NavBar engloba = {Nav, NavItem} */}
+                <Nav Name='A-Z'>                                                                                    {/* Dropdown */}
+                    <NavItem Href='//' Item='Test'/>                                                                {/* itens do Dropdown */}
+                    <NavItem Href='//' Item='Test'/>                                                                {/* itens do Dropdown */}
+                    <NavItem Href='//' Item='Test'/>                                                                {/* itens do Dropdown */}
+                    <NavItem Href='//' Item='Test'/>                                                                {/* itens do Dropdown */}
+                </Nav>
+                <Nav Name='A-Z'>                                                                                    {/* Dropdown */}
+                    <NavItem Href='//' Item='Test'/>                                                                {/* itens do Dropdown */}
+                    <NavItem Href='//' Item='Test'/>                                                                {/* itens do Dropdown */}
+                    <NavItem Href='//' Item='Test'/>                                                                {/* itens do Dropdown */}
+                    <NavItem Href='//' Item='Test'/>                                                                {/* itens do Dropdown */}
                 </Nav>
             </Bar>
             <Align>
