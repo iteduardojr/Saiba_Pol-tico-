@@ -1,11 +1,11 @@
 import React from 'react'
-import { Navbar } from 'react-bootstrap'
+import Style from './Bar.module.css'
 
 const Bar = (props) => {
     return (
-        <Navbar bg="transparent" className='d-flex justify-content-center align-items-center mb-4 gap-3 border-bottom border-4 border-dark'>
+        <navbar className={Style.Navbar}>
             {props.children}
-        </Navbar>
+        </navbar>
     )
 }
 

@@ -22,16 +22,14 @@
 .divInput {
     display: flex; align-items: center;
     border: 4px solid var(--Green);
-    border-radius: 25px;
+    border-radius: 20px;
     width: 100%;
 }
 
-.Padrao {
-    height: 50px;
-}
+.Padrao { height: 50px; }
 
 .input {
-    border-radius: 20px 0 0 20px ;
+    border-radius: 15px 0 0 15px ;
     border: none;
     width: 100%;
     box-sizing: border-box;

@@ -43,7 +43,7 @@ const index = ({ openDeputados }) => {
                 <Row md={5}>
                     {currentResults.map(item => (
                         <Col key={item.id}>
-                            <Card bg='primary' text='light' className="mb-4" style={{ height: '21em' }}>
+                            <Card bg='primary' text='light' className="mb-4" >
                                 <Card.Body className='text-center'>
                                     <Link href={'/deputados/' + item.id}>
                                         <Card.Img variant="top" src={item.urlFoto} />
