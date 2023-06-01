@@ -7,6 +7,7 @@ import Link from 'next/link'
 import Bar from '../../components/NavBar/Bar'
 import Nav from '../../components/NavBar/Nav'
 import NavItem from '../../components/NavBar/NavItem'
+import { capitalizeWords } from '../../components/CapitalizeWords'
 
 const index = ({ openDeputados }) => {
 
@@ -21,23 +22,26 @@ const index = ({ openDeputados }) => {
         currentPage * resultsPerPage
     );
 
+    const itens = [
+        { id: 1, nomeItem: null, nome: 'A-Z', href: null },
+        { id: 2, nomeItem: null, nome: '0-1', href: null },
+        { id: 3, nomeItem: null, nome: '0-1', href: null },
+        { id: 4, nomeItem: null, nome: '0-1', href: null }
+    ]
+
+    console.log(itens)
+
     console.log(openDeputados)
     return (
         <>
             <Header />
-            <Bar>                                                                                                   {/* NavBar engloba = {Nav, NavItem} */}
-                <Nav Name='A-Z'>                                                                                    {/* Dropdown */}
-                    <NavItem Href='//' Item='Test'/>                                                                {/* itens do Dropdown */}
-                    <NavItem Href='//' Item='Test'/>                                                                {/* itens do Dropdown */}
-                    <NavItem Href='//' Item='Test'/>                                                                {/* itens do Dropdown */}
-                    <NavItem Href='//' Item='Test'/>                                                                {/* itens do Dropdown */}
-                </Nav>
-                <Nav Name='A-Z'>                                                                                    {/* Dropdown */}
-                    <NavItem Href='//' Item='Test'/>                                                                {/* itens do Dropdown */}
-                    <NavItem Href='//' Item='Test'/>                                                                {/* itens do Dropdown */}
-                    <NavItem Href='//' Item='Test'/>                                                                {/* itens do Dropdown */}
-                    <NavItem Href='//' Item='Test'/>                                                                {/* itens do Dropdown */}
-                </Nav>
+            <Bar>
+                {itens.map(item => {
+                    <Nav Name={item.nome}>
+                        <NavItem Href={item.href} Item={item.nomeItem} />
+
+                    </Nav>
+                })}
             </Bar>
             <Align>
                 <Row md={5}>
@@ -46,9 +50,9 @@ const index = ({ openDeputados }) => {
                             <Card bg='primary' text='light' className="mb-4" >
                                 <Card.Body className='text-center'>
                                     <Link href={'/deputados/' + item.id}>
-                                        <Card.Img variant="top" src={item.urlFoto} />
+                                        <Card.Img variant="top" src={item.urlFoto} alt={item.nome + item.siglaPartido}/>
                                     </Link>
-                                        <Card.Text>{item.nome}</Card.Text>
+                                    <Card.Text>{capitalizeWords(item.nome)}</Card.Text>
                                 </Card.Body>
                             </Card>
                         </Col>

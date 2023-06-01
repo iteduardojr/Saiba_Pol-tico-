@@ -31,7 +31,7 @@ const Index = () => {
                 </Offcanvas>
             </Gambiarra>
 
-            <Image src={Logo} className={Style.Image} />
+            <Image src={Logo} className={Style.Image} alt='Logo Site'/>
             <div className={Style.divInput}>
                 <input className={`${Style.Padrao} ${Style.input}`} type='search' placeholder='Pesquise o deputado aqui' ></input>
                 <button className={`${Style.Button} ${Style.Padrao}`}><IoSearch className={Style.CorSVG} /></button>
