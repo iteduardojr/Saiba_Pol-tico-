@@ -10,6 +10,8 @@
     /* SPACING */
 
     --addingGeneral: 15px 110px;
+
+    --TransitionTime: all 200ms;
 }
 
 * {

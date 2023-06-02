@@ -3,7 +3,7 @@ import { Dropdown } from 'react-bootstrap'
 
 const NavItem = (props) => {
   return (
-    <Dropdown.Item eventKey="1" href={props.Href}>{props.Item}</Dropdown.Item>
+    <Dropdown.Item href={props.Href}>{props.Item}</Dropdown.Item>
   )
 }
 

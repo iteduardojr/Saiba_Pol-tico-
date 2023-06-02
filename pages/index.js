@@ -4,7 +4,7 @@ import Align from "../components/Align";
 export default function Home() {
   return (
     <>
-      <Header />
+      <Header input/>
       <Align>
         
       </Align>
