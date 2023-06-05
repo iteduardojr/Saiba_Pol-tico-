@@ -2,5 +2,6 @@
     REACT-ICONS,
     REACT-BOOTSTRAP,
     BOOTSTRAP,
-    AXIOS
+    AXIOS,
+    react-infinite-scroll-component
 }

@@ -17,7 +17,7 @@ const Index = (props) => {
 
     return (
         <header className={Style.Header}>
-            {props.input ?
+            {props.input ? (
                 <>
                     <button className={Style.Menu} variant="primary" onClick={handleShow}> <IoMenu /> </button>
                     <Gambiarra>
@@ -39,7 +39,7 @@ const Index = (props) => {
                     </div>
                     <ModalLogin />
                 </>
-                :
+                ) : (
                 <>
                     <button className={Style.Menu} variant="primary" onClick={handleShow}> <IoMenu /> </button>
                     <Gambiarra>
@@ -58,9 +58,7 @@ const Index = (props) => {
                         <ModalLogin />
                     </div>
                 </>
-            }
-
-            {/* <button className={Style.BTNlogin}>Login</button> */}
+            )}
 
         </header>
     )
