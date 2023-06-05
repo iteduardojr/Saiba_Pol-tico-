@@ -1,13 +1,9 @@
-.CorSVG {
-    color: var(--Green);
-    font-size: 2.5em;
-}
+.CorSVG { color: var(--Green); font-size: 2.5em; }
 
 .Header {
     display: flex; justify-content: space-between; align-items: center; gap: 0 1em;
     padding: 0 2em;
-    width: 100%;
-    height: 5em;
+    width: 100%; height: 5em;
     background: var(--DarkBlue);
 }
 
@@ -37,9 +33,7 @@
     padding: 0 0.6em;
 }
 
-.input::placeholder {
-    text-align: center;
-}
+.input::placeholder { text-align: center; }
 
 .Button {
     width: 70px;
@@ -58,5 +52,8 @@
 
 .BTNlogin:hover {
     transform: scale(1.05);
-    color: var(--Green);
+    background: var(--Green);
+    color: var(--DarkBlue); font-weight: 900;
 }
+
+.noProps { display: flex; gap: 0 1em; }

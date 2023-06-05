@@ -35,10 +35,10 @@ const index = ({ openDeputados }) => {
                 <Row md={5}>
                     {currentResults.map(item => (
                         <Col key={item.id}>
-                            <Card bg='primary' text='light' className="mb-4" >
+                            <Card bg='primary' text='light' className="mb-4 rounded-5" >
                                 <Card.Body className='text-center'>
                                     <Link href={'/deputados/' + item.id}>
-                                        <Card.Img variant="top" src={item.urlFoto} alt={item.nome + item.siglaPartido} />
+                                        <Card.Img className='rounded-4' variant="top" src={item.urlFoto} alt={item.nome + item.siglaPartido} />
                                     </Link>
                                     <Card.Text>{capitalizeWords(item.nome)}</Card.Text>
                                 </Card.Body>
