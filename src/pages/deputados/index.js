@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import Align from '../../components/Align'
 import Header from '../../components/Header'
 import apiDeputados from '../../services/apiDeputados'
-import { Card, Col, Row } from 'react-bootstrap'
+import { Card, Col, Container, Row } from 'react-bootstrap'
 import Link from 'next/link'
 import Bar from '../../components/NavBar/Bar'
 import Nav from '../../components/NavBar/Nav'
@@ -40,17 +39,16 @@ const index = ({ openDeputados }) => {
 
     return (
         <>
-            <Header />
             <Bar>
                 <Nav Name='Letras'>
                     <NavItem Href='#' Item='A-Z' />
                     <NavItem Href='#' Item='Z-A' />
-                    
+
                 </Nav>
             </Bar>
-            <Align>
+
+            <Container>
                 <Row md={5}>
-                    <h2>{currentPage}</h2>
                     {followers.map(item => (
                         <Col key={item.id}>
                             <Card bg='primary' text='light' className="mb-4 rounded-5" >
@@ -64,11 +62,11 @@ const index = ({ openDeputados }) => {
                         </Col>
                     ))}
                 </Row>
-                    <div className='container font-bold text-center' id='sentinela'>
-                        <h1>Fim da Lista de Deputados</h1>
-                    </div>
+                <div className='container font-bold text-center' id='sentinela'>
+                    <h1>Fim da Lista de Deputados</h1>
+                </div>
 
-            </Align>
+            </Container>
         </>
     )
 }

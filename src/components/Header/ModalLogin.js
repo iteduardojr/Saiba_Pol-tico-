@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { Button, Form, Modal } from 'react-bootstrap'
-import Gambiarra from './Gambiarra'
-import Style from './style.module.css'
+
 
 const ModalLogin = () => {
 
@@ -12,8 +11,8 @@ const ModalLogin = () => {
 
     return (
         <>
-            <button className={Style.BTNlogin} onClick={handleShow}> Login </button>
-            <Gambiarra>
+            <button onClick={handleShow}> Login </button>
+            
 
                 <Modal show={show} onHide={handleClose}>
                     <Modal.Header closeButton>
@@ -38,8 +37,8 @@ const ModalLogin = () => {
                         <Button variant="primary" onClick={handleClose}> Logar </Button>
                     </Modal.Footer>
                 </Modal>
-            </Gambiarra>
-        </>
+            </>
+        
     )
 }
 
