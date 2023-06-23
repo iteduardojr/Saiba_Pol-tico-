@@ -1,34 +1,79 @@
-html, body {
-  padding: 0;
-  margin: 0;
-  font-family: Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
 }
 
-* {
-  box-sizing: border-box;
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
 }
 
-img {
-  max-width: 100%;
-  height: auto;
+
+
+.slick-active .bgcolor {
+  background-color: white;
 }
 
-h1, h2, p, ul {
-  margin: 0;
+.tendencia .slick-list {
+  margin-left: -28px;
 }
 
-ul {
-  padding: 0;
-  list-style: none;
+.slider-container .slick-list {
+  padding-left: 0px !important;
+  margin-left: 28px;
 }
 
-button {
-  padding: 0.5rem 1rem;
-  font-weight: bold;
+.slider-container .tendencia .slick-list {
+  padding-left: 0px !important;
+  margin-left: 0px !important;
+}
+
+.row .slick-slide {
+  max-width: fit-content;
+}
+
+@media (min-width:640px) {
+  .slider-container .slick-list {
+    margin-left: 36px;
+  }
+}
+
+@media (max-width:640px) {
+  .parrafo {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    /* number of lines to show */
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+
+  }
+}
+
+@media (min-width: 768px) {
+  .slider-container .slick-list {
+    margin-left: 48px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .slider-container .slick-list {
+    margin-left: 60px;
+  }
 }

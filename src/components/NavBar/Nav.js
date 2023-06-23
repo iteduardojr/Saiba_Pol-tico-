@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import Style from './Nav.module.css'
 import { Button, ButtonGroup, Dropdown, NavDropdown } from 'react-bootstrap'
 
 const Nav = (props) => {
