@@ -1,15 +1,12 @@
 import React, { useState, useEffect } from 'react'
-import Header from '../../components/Header'
 import apiDeputados from '../../services/apiDeputados'
-import { Card, Col, Container, Row } from 'react-bootstrap'
+import { Button, ButtonGroup, Card, Col, Container, Dropdown, Row } from 'react-bootstrap'
 import Link from 'next/link'
-import Bar from '../../components/NavBar/Bar'
-import Nav from '../../components/NavBar/Nav'
-import NavItem from '../../components/NavBar/NavItem'
-import { capitalizeWords } from '../../components/CapitalizeWords'
+import Footer from '../../components/Footer'
 
 
-const index = ({ openDeputados }) => {
+
+const index = () => {
 
     const [followers, setFollowers] = React.useState([])
     const [currentPage, setCurrentPage] = React.useState(1)
@@ -39,14 +36,18 @@ const index = ({ openDeputados }) => {
 
     return (
         <>
-            <Bar>
-                <Nav Name='Letras'>
-                    <NavItem Href='#' Item='A-Z' />
-                    <NavItem Href='#' Item='Z-A' />
 
-                </Nav>
-            </Bar>
 
+            <div className='pt-20 pb-3 text-center'>
+                <Dropdown as={ButtonGroup} className='bg-white h-9'>
+                    <Button variant="transparent"><span className='text-[15px]'>Letras</span></Button>
+                    <Dropdown.Toggle split variant="success" id="dropdown-custom-1" />
+                    <Dropdown.Menu className="bg-light">
+                        <Dropdown.Item href='#'>A-Z</Dropdown.Item>
+                        <Dropdown.Item href='#'>Z-A</Dropdown.Item>
+                    </Dropdown.Menu>
+                </Dropdown>
+            </div>
             <Container>
                 <Row md={5}>
                     {followers.map(item => (
@@ -56,7 +57,7 @@ const index = ({ openDeputados }) => {
                                     <Link href={'/deputados/' + item.id}>
                                         <Card.Img className='rounded-4' variant="top" src={item.urlFoto} alt={item.nome + item.siglaPartido} />
                                     </Link>
-                                    <Card.Text>{capitalizeWords(item.nome)}</Card.Text>
+                                    <Card.Text>{item.nome}</Card.Text>
                                 </Card.Body>
                             </Card>
                         </Col>
@@ -65,7 +66,7 @@ const index = ({ openDeputados }) => {
                 <div className='container font-bold text-center' id='sentinela'>
                     <h1>Fim da Lista de Deputados</h1>
                 </div>
-
+                
             </Container>
         </>
     )
