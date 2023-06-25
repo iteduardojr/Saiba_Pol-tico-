@@ -31,7 +31,7 @@ const Index = (props) => {
                         </Offcanvas>
                     </Gambiarra>
 
-                    <Image src={Logo} className={Style.Image} alt='Logo Site' />
+                    <Link href='/'><Image src={Logo} className={Style.Image} alt='Logo Site' /></Link>
 
                     <div className={Style.divInput}>
                         <input className={`${Style.Padrao} ${Style.input}`} type='search' placeholder='Pesquise o deputado aqui' ></input>

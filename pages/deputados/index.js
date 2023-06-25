@@ -33,7 +33,7 @@ const index = ({ openDeputados }) => {
     console.log(openDeputados)
     return (
         <>
-            <Header />
+            <Header input/>
             <Bar>
                 <Nav Name='Letras'>
                     <NavItem Href='#' Item='A-Z' />
