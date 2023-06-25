@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Button, Form, Modal } from 'react-bootstrap'
+import { IoLogInSharp } from 'react-icons/Io5';
 
 
 const ModalLogin = () => {
@@ -11,12 +12,12 @@ const ModalLogin = () => {
 
     return (
         <>
-            <button onClick={handleShow}> Login </button>
+            <button onClick={handleShow}> <IoLogInSharp className='text-[36px] text-blue-700 hover:text-green-400' /> </button>
             
 
                 <Modal show={show} onHide={handleClose}>
                     <Modal.Header closeButton>
-                        <Modal.Title>Login</Modal.Title>
+                        <Modal.Title>Logar</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
                         <Form>
