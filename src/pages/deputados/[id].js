@@ -3,6 +3,8 @@ import apiDeputados from '../../services/apiDeputados'
 import { Card, Col, Container, Row, Table } from 'react-bootstrap'
 import Chart from 'react-google-charts'
 import Charts from "chart.js";
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
 
 const idDeputados = ({ infoDep, despDep, despDep21, despDep22, despDep23 }) => {
 
@@ -122,7 +124,7 @@ const idDeputados = ({ infoDep, despDep, despDep21, despDep22, despDep23 }) => {
     return acc
   }, {});
 
-  
+
 
   const valoresDespesas21 = Object.values(groupedData5);
   const valoresDespesas22 = Object.values(groupedData3);
@@ -251,6 +253,7 @@ const idDeputados = ({ infoDep, despDep, despDep21, despDep22, despDep23 }) => {
 
   return (
     <>
+    <Header />
       <div className='pt-5'>
         <Container>
 
@@ -284,24 +287,26 @@ const idDeputados = ({ infoDep, despDep, despDep21, despDep22, despDep23 }) => {
 
             <Col md={4} className='pt-5 text-white'>
               <h3>Despesas Gerais</h3>
-              <table className="w-full text-md text-left text-blue-100 dark:text-blue-100">
-                <thead className="text-xs text-white uppercase bg-blue-500 border-b border-blue-400 dark:text-white">
-                  <tr>
-                    <th scope="col" className="px-5 py-3">Data</th>
-                    <th scope="col" className="px-5 py-3">Descrição</th>
-                    <th scope="col" className="px-2 py-3">Valor</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {despDep.map(item => (
-                    <tr key={item.codDocumento} className="bg-blue-900 border-b border-blue-400 hover:bg-blue-500">
-                      <td scope="row" className="px-2 py-2">{item.dataDocumento}</td>
-                      <td scope="row" className="px-2 py-2">{item.tipoDespesa}</td>
-                      <td scope="row" className="px-2 py-2">{item.valorDocumento}</td>
+              <div className="max-h-[82rem] overflow-auto overflow-y-scroll shadow-2xl rounded-[3rem] shadow-black pt-2 pb-2">
+                <table className="text-md text-left text-blue-100 dark:text-blue-100">
+                  <thead className="text-xs text-white uppercase bg-blue-500 border-b border-blue-400 dark:text-white">
+                    <tr>
+                      <th scope="col" className="px-5 py-3">Data</th>
+                      <th scope="col" className="px-5 py-3">Descrição</th>
+                      <th scope="col" className="px-2 py-3">Valor</th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody>
+                    {despDep.map(item => (
+                      <tr key={item.codDocumento} className="bg-blue-900 border-b border-blue-400 hover:bg-blue-500">
+                        <td scope="row" className="px-2 py-2">{item.dataDocumento}</td>
+                        <td scope="row" className="px-2 py-2">{item.tipoDespesa}</td>
+                        <td scope="row" className="px-2 py-2">{item.valorDocumento}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
 
             </Col>
             <Col md={8} className='pt-5 bg text-white'>
@@ -313,20 +318,20 @@ const idDeputados = ({ infoDep, despDep, despDep21, despDep22, despDep23 }) => {
                 options={optionsCharts}
                 width={"100%"}
                 height={"450px"}
-                className='text-white bg-gray-950 bg-opacity-80'
+                className='text-white bg-gray-950 bg-opacity-80 shadow-2xl shadow-black rounded-3xl'
               />
               <Chart
                 chartType="Table"
                 width="100%"
-                height="400px"
+                height="150px"
                 data={tableCharts}
                 options={optionsTable}
                 formatters={formatters}
-                className='text-black font-semibold'
+                className='text-black font-semibold '
 
               />
 
-              <div className="w-full mb-6 shadow-lg rounded-lg bg-gray-950 bg-opacity-80">
+              <div className="w-full mb-6 shadow-2xl shadow-black rounded-3xl bg-gray-950 bg-opacity-80">
                 <div className="rounded-t mb-0 px-4 py-3">
                   <h2 className="text-white text-xl font-semibold">Grafico de gastos Mes/Ano</h2>
                 </div>
@@ -341,6 +346,7 @@ const idDeputados = ({ infoDep, despDep, despDep21, despDep22, despDep23 }) => {
           </Row>
         </Container>
       </div>
+      <Footer />
     </>
   )
 }

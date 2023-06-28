@@ -3,17 +3,31 @@ import apiDeputados from '../../services/apiDeputados'
 import { Button, ButtonGroup, Card, Col, Container, Dropdown, Row } from 'react-bootstrap'
 import Link from 'next/link'
 import Footer from '../../components/Footer'
+import Header from '../../components/Header'
+import { IoSearch } from 'react-icons/Io5'
 
 
 
-const index = () => {
+const ListaDeputados = () => {
 
-    const [deputados, setDeputados] = React.useState([])
-    const [currentPage, setCurrentPage] = React.useState(1)
+    const [deputados, setDeputados] = useState([])
+    const [currentPage, setCurrentPage] = useState(1)
     const [search, setSearch] = useState("")
+    const [order, setOrder] = useState("A-Z")
 
-    const searchLowerCase = search.toLowerCase() //Buscar letras caixa alto e baixa
-    const items = deputados.filter((item) => item.nome.toLowerCase().includes(searchLowerCase))
+
+    const searchLowerCase = search.toLowerCase(); //Buscar letras caixa alto e baixa
+    const items = deputados
+        .filter((item) => item.nome.toLowerCase().includes(searchLowerCase))
+        .sort((a, b) => {
+            // Ordena os deputados de acordo com a ordem atual
+            if (order === "A-Z") {
+                return a.nome.localeCompare(b.nome); // Compara os nomes em ordem crescente
+            } else {
+                return b.nome.localeCompare(a.nome); // Compara os nomes em ordem decrescente
+            }
+        });
+
 
     React.useEffect(() => {
 
@@ -37,31 +51,37 @@ const index = () => {
         return () => intersectionObserver.disconnect();
     }, [])
 
-    
+    // Cria uma função para alterar a ordem quando o usuário clicar em um dos itens do dropdown
+    const handleOrderChange = (newOrder) => {
+        setOrder(newOrder);
+    };
+
     return (
         <>
 
+            <Header />
 
+            <div className='container sticky top-0 pt-[13px] z-10 flex items-center justify-center'>
+                <IoSearch className="absolute text-slate-400 me-96 h-8 w-6 ms-1" />
+                <input
+                    className="rounded-3xl shadow-md shadow-black w-[15rem] md:w-[25rem] bg-gray-200 outline-none py-1 px-40 text-lg focus:px-7  focus: duration-500"
+                    type='search'
+                    value={search}
+                    onChange={(e) => setSearch(e.target.value)}
+                    placeholder="Procurar"
+                />
+            </div>
             <div className='pt-2 pb-3 text-center'>
                 <Dropdown as={ButtonGroup} className='bg-white h-9'>
                     <Button variant="transparent"><span className='text-[15px]'>Letras</span></Button>
                     <Dropdown.Toggle split variant="success" id="dropdown-custom-1" />
                     <Dropdown.Menu className="bg-light">
-                        <Dropdown.Item href='#'>A-Z</Dropdown.Item>
-                        <Dropdown.Item href='#'>Z-A</Dropdown.Item>
+                        <Dropdown.Item href='#' onClick={() => handleOrderChange("A-Z")}>A-Z</Dropdown.Item>
+                        <Dropdown.Item href='#' onClick={() => handleOrderChange("Z-A")}>Z-A</Dropdown.Item>
                     </Dropdown.Menu>
                 </Dropdown>
             </div>
             <Container>
-
-
-                <div className='text-center pb-3'>
-                    <input className='px-10'
-                        type='search'
-                        value={search}
-                        onChange={(e) => setSearch(e.target.value)}
-                        />
-                </div>
 
 
                 <Row md={5}>
@@ -79,15 +99,16 @@ const index = () => {
                     ))}
                 </Row>
                 <div className='container font-bold text-center' id='sentinela'>
-                    <h1>Fim da Lista de Deputados</h1>
+                    <h3 className='text-white bg-blue-900 bg-opacity-80 mx-[400px] rounded-full'>Fim da Lista de Deputados</h3>
                 </div>
 
             </Container>
+            <Footer />
         </>
     )
 }
 
-export default index
+export default ListaDeputados
 
 
 /*export async function getServerSideProps(context) {

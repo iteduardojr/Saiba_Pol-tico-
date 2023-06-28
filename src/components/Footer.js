@@ -10,7 +10,7 @@ const Footer = () => {
 
         <div className='flex justify-between'>
           <div className=''>
-            <Image src={Logo} width={90} />
+            <Image src={Logo} width={90} height={90} alt='Logo do site' />
           </div>
           <div className=''>
             <span className='text-current hover:text-white pb-8 '>Desenvolvedores </span>
