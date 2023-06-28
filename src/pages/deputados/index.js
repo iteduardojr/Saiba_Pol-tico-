@@ -8,8 +8,12 @@ import Footer from '../../components/Footer'
 
 const index = () => {
 
-    const [followers, setFollowers] = React.useState([])
+    const [deputados, setDeputados] = React.useState([])
     const [currentPage, setCurrentPage] = React.useState(1)
+    const [search, setSearch] = useState("")
+
+    const searchLowerCase = search.toLowerCase() //Buscar letras caixa alto e baixa
+    const items = deputados.filter((item) => item.nome.toLowerCase().includes(searchLowerCase))
 
     React.useEffect(() => {
 
@@ -17,7 +21,7 @@ const index = () => {
         const URL = `${ENDPOINT}?pagina=${currentPage}&itens=10&ordem=ASC&ordenarPor=nome`
         fetch(URL)
             .then((response) => response.json())
-            .then((newFollowers) => setFollowers((prevFollowers) => [...prevFollowers, ...newFollowers.dados]))
+            .then((newDeputados) => setDeputados((prevDeputados) => [...prevDeputados, ...newDeputados.dados]))
     }, [currentPage])
 
     React.useEffect(() => {
@@ -33,12 +37,12 @@ const index = () => {
         return () => intersectionObserver.disconnect();
     }, [])
 
-
+    
     return (
         <>
 
 
-            <div className='pt-20 pb-3 text-center'>
+            <div className='pt-2 pb-3 text-center'>
                 <Dropdown as={ButtonGroup} className='bg-white h-9'>
                     <Button variant="transparent"><span className='text-[15px]'>Letras</span></Button>
                     <Dropdown.Toggle split variant="success" id="dropdown-custom-1" />
@@ -49,8 +53,19 @@ const index = () => {
                 </Dropdown>
             </div>
             <Container>
+
+
+                <div className='text-center pb-3'>
+                    <input className='px-10'
+                        type='search'
+                        value={search}
+                        onChange={(e) => setSearch(e.target.value)}
+                        />
+                </div>
+
+
                 <Row md={5}>
-                    {followers.map(item => (
+                    {items.map(item => (
                         <Col key={item.id}>
                             <Card bg='primary' text='light' className="mb-4 rounded-5" >
                                 <Card.Body className='text-center'>
@@ -66,7 +81,7 @@ const index = () => {
                 <div className='container font-bold text-center' id='sentinela'>
                     <h1>Fim da Lista de Deputados</h1>
                 </div>
-                
+
             </Container>
         </>
     )

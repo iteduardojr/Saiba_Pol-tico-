@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <>
       
-      <div className='p-[24rem]'>
+      <div className='p-[22rem]'>
         
       </div>
   
