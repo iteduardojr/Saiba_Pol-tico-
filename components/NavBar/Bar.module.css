@@ -1,0 +1,5 @@
+.Navbar {
+    display: flex; justify-content: center; align-items: center; gap: 0 1em;
+    background: var(--Green);
+    padding: 0.3em 1em; margin-bottom: 1em;
+}
