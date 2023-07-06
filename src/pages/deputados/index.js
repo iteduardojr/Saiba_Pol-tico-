@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import apiDeputados from '../../services/apiDeputados'
 import { Button, ButtonGroup, Card, Col, Container, Dropdown, Row } from 'react-bootstrap'
 import Link from 'next/link'
 import Footer from '../../components/Footer'
@@ -17,7 +16,7 @@ const ListaDeputados = () => {
 
 
     const searchLowerCase = search.toLowerCase(); //Buscar letras caixa alto e baixa
-    const items = deputados
+    const deputs = deputados
         .filter((item) => item.nome.toLowerCase().includes(searchLowerCase))
         .sort((a, b) => {
             // Ordena os deputados de acordo com a ordem atual
@@ -29,16 +28,16 @@ const ListaDeputados = () => {
         });
 
 
-    React.useEffect(() => {
+    useEffect(() => {
 
         const ENDPOINT = 'https://dadosabertos.camara.leg.br/api/v2/deputados'
-        const URL = `${ENDPOINT}?pagina=${currentPage}&itens=10&ordem=ASC&ordenarPor=nome`
+        const URL = `${ENDPOINT}?pagina=${currentPage}&itens=5&ordem=ASC&ordenarPor=nome`
         fetch(URL)
             .then((response) => response.json())
             .then((newDeputados) => setDeputados((prevDeputados) => [...prevDeputados, ...newDeputados.dados]))
     }, [currentPage])
 
-    React.useEffect(() => {
+    useEffect(() => {
         const intersectionObserver = new IntersectionObserver((entries) => {
             if (entries.some((entry) => entry.isIntersecting)) {
                 console.log('Elemento esta visivel')
@@ -76,8 +75,8 @@ const ListaDeputados = () => {
                     <Button variant="transparent"><span className='text-[15px]'>Letras</span></Button>
                     <Dropdown.Toggle split variant="success" id="dropdown-custom-1" />
                     <Dropdown.Menu className="bg-light">
-                        <Dropdown.Item href='#' onClick={() => handleOrderChange("A-Z")}>A-Z</Dropdown.Item>
-                        <Dropdown.Item href='#' onClick={() => handleOrderChange("Z-A")}>Z-A</Dropdown.Item>
+                        <Dropdown.Item onClick={() => handleOrderChange("A-Z")}>A-Z</Dropdown.Item>
+                        <Dropdown.Item onClick={() => handleOrderChange("Z-A")}>Z-A</Dropdown.Item>
                     </Dropdown.Menu>
                 </Dropdown>
             </div>
@@ -85,17 +84,17 @@ const ListaDeputados = () => {
 
 
                 <Row md={5}>
-                    {items.map(item => (
-                        <Col key={item.id}>
-                            <Card bg='primary' text='light' className="mb-4 rounded-5" >
-                                <Card.Body className='text-center'>
-                                    <Link href={'/deputados/' + item.id}>
-                                        <Card.Img className='rounded-4' variant="top" src={item.urlFoto} alt={item.nome + item.siglaPartido} />
-                                    </Link>
-                                    <Card.Text>{item.nome}</Card.Text>
-                                </Card.Body>
-                            </Card>
-                        </Col>
+                    {deputs.map(item => (
+                            <Col key={item.id}>
+                                <Card bg='primary' text='light' className="mb-4 rounded-5" >
+                                    <Card.Body className='text-center'>
+                                        <Link href={'/deputados/' + item.id}>
+                                            <Card.Img className='rounded-lg shadow-2xl shadow-black transition duration-300 ease-in-out hover:scale-105' variant="top" src={item.urlFoto} alt={item.nome} />
+                                        </Link>
+                                        <Card.Text>{item.nome}</Card.Text>
+                                    </Card.Body>
+                                </Card>
+                            </Col>
                     ))}
                 </Row>
                 <div className='container font-bold text-center' id='sentinela'>
@@ -109,14 +108,3 @@ const ListaDeputados = () => {
 }
 
 export default ListaDeputados
-
-
-/*export async function getServerSideProps(context) {
-
-    const deputados = await apiDeputados.get('/deputados')
-    const openDeputados = deputados.data.dados
-
-    return {
-        props: { openDeputados }, // will be passed to the page component as props
-    }
-}*/

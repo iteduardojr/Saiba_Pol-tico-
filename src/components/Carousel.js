@@ -8,7 +8,7 @@ import apiDeputados from "../services/apiDeputados";
 const Carousel = () => {
 
     const [deputados, setDeputados] = useState([])
-    const [currentPage, setCurrentPage] = useState(1)
+    
 
     React.useEffect(() => {
 
@@ -17,7 +17,7 @@ const Carousel = () => {
         fetch(URL)
             .then((response) => response.json())
             .then((newDeputados) => setDeputados((prevDeputados) => [...prevDeputados, ...newDeputados.dados]))
-    }, [currentPage])
+    }, [])
 
     const settings = {
         className: "center",
@@ -68,26 +68,3 @@ const Carousel = () => {
 
 }
 export default Carousel
-/* 
-export async function getServerSideProps(context) {
-
-   // ID DO DEPUTADOS(A)
-    const id = context.params.id
-  
-    // REFERENCIA DEPUTADO ÚNICO
-    const resultado = await apiDeputados.get('/deputados/')
-    const deputadoid = await apiDeputados.get('/deputados/' + id)
-   
-  
-    const deputados = resultado.data.dados
-    const deputadosId = deputadoid.data.dados
-
-  
-  
-    // RETORNA VARIÁVEIS DECLARADAS
-    return {
-      props: { deputados, deputadosId }, // will be passed to the page component as props
-    }
-  } 
-  
-  */
