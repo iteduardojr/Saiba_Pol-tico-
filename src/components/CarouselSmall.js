@@ -8,7 +8,7 @@ const CarouselSmall = () => {
 
 
     const [deputados, setDeputados] = useState([])
-    const [currentPage, setCurrentPage] = useState(1)
+ 
 
     React.useEffect(() => {
 
@@ -17,7 +17,7 @@ const CarouselSmall = () => {
         fetch(URL)
             .then((response) => response.json())
             .then((newDeputados) => setDeputados((prevDeputados) => [...prevDeputados, ...newDeputados.dados]))
-    }, [currentPage])
+    }, [])
 
 
     const settings = {
@@ -36,7 +36,7 @@ const CarouselSmall = () => {
                 {deputados.map((item) => (
                     <div key={item.id} className="p-2">
                         <Link href={'deputados/' + item.id}>
-                        <Image priority src={item.urlFoto} width={1920} height={1200} alt={"Background " + item.nome} className="rounded-lg shadow-lg" />
+                        <Image priority src={item.urlFoto} width={1920} height={1200} alt={"Background " + item.nome} className="rounded-lg shadow-2xl shadow-black transition duration-300 ease-in-out hover:scale-110" />
                         </Link>
                     </div>
                 ))}
